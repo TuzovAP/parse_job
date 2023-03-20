@@ -1,0 +1,7 @@
+from django.apps import AppConfig
+
+
+class AppScrapingConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'app_scraping'
+    verbose_name = 'Приложение по сбору вакансий'
