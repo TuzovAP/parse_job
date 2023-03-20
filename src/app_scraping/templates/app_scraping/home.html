@@ -18,17 +18,29 @@
 {#            <a href="{{ vacancy.url }}" class="btn btn-primary">Go somewhere</a>#}
           </div>
         </div>
-
+    {% empty %}
+        <br>
+        <h4>Ничего не найдено, измените запрос</h4>
+        <br>
     {% endfor %}
 
 {#    <form action="https://www.google.com/">#}
 {#    <form method="post" action="">  {% csrf_token %}#}
-    <form method="get" action="">
-      <label for="city_name">Город:</label><br>
-      <input type="text" id="city_name" name="city_name" value="Санкт-Петербург"><br>
-      <label for="language_program">Язык программирования:</label><br>
-      <input type="text" id="language_program" name="language_program" value="Python"><br><br>
-      <input type="submit" value="Отправить">
-    </form>
+    <div class="row">
+        <div class="col-md-4">
+{#        <div class="col-md-4 mx-auto">#}
+            <form method="get" action="">
+{#      <label for="city_name">Город:</label><br>#}
+{#      <input type="text" id="city_name" name="city_name" value="Санкт-Петербург"><br>#}
+{#      <label for="language_program">Язык программирования:</label><br>#}
+{#      <input type="text" id="language_program" name="language_program" value="Python"><br><br>#}
+            <div class="form-group">
+                {{ form_django.as_p }}
+            </div>
+            <input type="submit" value="Найти">
+            </form>
+        </div>
+    </div>
+
     <br>
 {% endblock %}
