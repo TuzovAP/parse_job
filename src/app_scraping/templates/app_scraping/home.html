@@ -10,7 +10,7 @@
         <div class="card my-2">
           <h5 class="card-header"><a href="{{ vacancy.url }}">{{ vacancy.title }}</a></h5>
           <div class="card-body">
-{#            <h5 class="card-title">Special title treatment</h5>#}
+            <p class="card-text">{{ vacancy.company }}</p>
             <p class="card-text">{{ vacancy.description }}</p>
               <p>{{ vacancy.language.language_name }} |
                   {{ vacancy.city.city_name }} |
