@@ -28,7 +28,7 @@ class City(models.Model):
 
 
 
-# Важно: тбл необходимо регестрировать в admin.py
+# Важно: тбл необходимо регестрировать в admin.py для отображение в админке на сайте
 class LanguageProgramm(models.Model):
     language_name = models.CharField(max_length=50,
                                  verbose_name='Язык программирования',
@@ -70,3 +70,9 @@ class Vacancy(models.Model):
     # Переопределяю написание в таблице
     def __str__(self):
         return self.title
+
+
+class Error(models.Model):
+    timestamp = models.DateField(auto_now_add=True)
+    url = models.URLField(unique=False)
+    er = models.CharField(max_length=250, verbose_name='Error')
