@@ -66,6 +66,7 @@ class Vacancy(models.Model):
     class Meta:
         verbose_name = 'Описание вакансии'  # написание заголовка столбца
         verbose_name_plural = 'Описание вакансий'  # написание таблицы в списке приложения
+        ordering = ['-timestamp']  # поле по которому произвожу сортировку
 
     # Переопределяю написание в таблице
     def __str__(self):

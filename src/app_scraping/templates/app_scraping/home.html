@@ -3,33 +3,19 @@
 {% block title %} Home title block {% endblock %}
 
 {% block vacancy_list_block %}
+    <div class="row">
+        <div class="col"><h2 class="text-center">Вакансии с разных сайтов в одном месте</h2>
+        </div>
+    </div>
     {#{{ name }}#}
     {#{{ vacancy_list }}#}
-    {% for vacancy in vacancy_list %}
-
-        <div class="card my-2">
-          <h5 class="card-header"><a href="{{ vacancy.url }}">{{ vacancy.title }}</a></h5>
-          <div class="card-body">
-            <p class="card-text">{{ vacancy.company }}</p>
-            <p class="card-text">{{ vacancy.description }}</p>
-              <p>{{ vacancy.language.language_name }} |
-                  {{ vacancy.city.city_name }} |
-                  <small>{{ vacancy.timestamp|date:"d-M-Y" }}</small></p>
-{#            <a href="{{ vacancy.url }}" class="btn btn-primary">Go somewhere</a>#}
-          </div>
-        </div>
-    {% empty %}
-        <br>
-        <h4>Ничего не найдено, измените запрос</h4>
-        <br>
-    {% endfor %}
-
 {#    <form action="https://www.google.com/">#}
 {#    <form method="post" action="">  {% csrf_token %}#}
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-8 mx-auto">
+            <h4 class="my-2">Для просмотра вакансий заполните форму</h4>
 {#        <div class="col-md-4 mx-auto">#}
-            <form method="get" action="">
+            <form method="get" action="{% url 'list' %}">
 {#      <label for="city_name">Город:</label><br>#}
 {#      <input type="text" id="city_name" name="city_name" value="Санкт-Петербург"><br>#}
 {#      <label for="language_program">Язык программирования:</label><br>#}

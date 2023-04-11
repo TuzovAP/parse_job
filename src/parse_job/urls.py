@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import home
-from app_scraping.views import home_view_app_scrapping
+from app_scraping.views import home_view_app_scrapping, list_view_app_scrapping
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('home/', home),
-    path('home/', home_view_app_scrapping),
+    path('list', list_view_app_scrapping, name='list'),  # name - наименование относительной ссылки
+    path('', home_view_app_scrapping, name='home'),
 ]

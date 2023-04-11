@@ -1,5 +1,7 @@
 import codecs
 import os, sys
+from django.contrib.auth import get_user_model
+
 
 path_abs = os.path.dirname(os.path.abspath('manage.py'))
 sys.path.append(path_abs)
@@ -12,6 +14,16 @@ django.setup()
 from app_scraping.hh_parse import parse_hh
 from app_scraping.rabota_parse import parse_rabota
 from app_scraping.models import Vacancy, City, LanguageProgramm, Error
+
+
+User = get_user_model()
+
+def get_setting_user():
+    q_dict = User.objects.filter(send_message=True).values()  # .values() позволяет получить словарь. Без него возвращается qs
+    setting_set = set((q['city_id'], q['language_programm_id']) for q in q_dict)
+    return setting_set
+
+q = get_setting_user()
 
 # из таблицы City забираю город СПб
 city = City.objects.filter(city_name='Санкт-Петербург').first()

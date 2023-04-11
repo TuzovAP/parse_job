@@ -62,10 +62,13 @@ class UserAdmin(BaseUserAdmin):
     # that reference specific fields on auth.User.
     list_display = ('email', 'is_admin', 'city', 'language_programm', 'send_message')
     list_filter = ('is_admin',)
+    # определяю какие поля из модели user будут выведены в админке редактирования юзера
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         ('Vacancy', {'fields': ('city', 'language_programm', 'send_message')}),
         ('Permissions', {'fields': ('is_admin',)}),
+        ('Activ user', {'fields': ('is_active',)}),
+        # ('Тест', {'тест2': ('тест3',)}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
     # overrides get_fieldsets to use this attribute when creating a user.
