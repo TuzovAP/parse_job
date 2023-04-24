@@ -77,3 +77,7 @@ class Error(models.Model):
     timestamp = models.DateField(auto_now_add=True)
     url = models.URLField(unique=False)
     er = models.CharField(max_length=250, verbose_name='Error')
+
+    def __str__(self):
+        return str(self.timestamp)
+
