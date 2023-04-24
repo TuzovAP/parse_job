@@ -1,6 +1,8 @@
 from django.db import models
 
 # create table "City" in db
+from django.db.models import JSONField
+
 from app_scraping.utils import from_cyrillic_to_eng
 
 
@@ -77,6 +79,7 @@ class Error(models.Model):
     timestamp = models.DateField(auto_now_add=True)
     url = models.URLField(unique=False)
     er = models.CharField(max_length=250, verbose_name='Error')
+    # data = JSONField()
 
     def __str__(self):
         return str(self.timestamp)

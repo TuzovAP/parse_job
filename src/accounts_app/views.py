@@ -95,8 +95,8 @@ def contact(request):
                 ]}
                 Error(data=data).save()
             messages.success(request, 'Данные отправлены администрации.')
-            return redirect('accounts:update')
+            return redirect('accounts_app:update')
         else:
-            return redirect('accounts:update')
+            return redirect('accounts_app:update')
     else:
-        return redirect('accounts:login')
+        return redirect('accounts_app:login')

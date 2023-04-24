@@ -74,9 +74,9 @@ class ContactForm(forms.Form):
     )
     language = forms.CharField(
         required=True,  widget=forms.TextInput(attrs={'class': 'form-control'}),
-        label='Специальность'
+        label='Язык программирования'
     )
     email = forms.EmailField(
-        label='Введите имэйл', required=True, widget=forms.EmailInput(
+        label='Email', required=True, widget=forms.EmailInput(
                                  attrs={'class': 'form-control'})
     )
