@@ -75,6 +75,6 @@ for job in vacancy_list_rabota:
         ).save()
         pass
 
-
-
-
+# удаляю записи старше 30 дней
+end_period = dt.date.today() - dt.timedelta(30)
+Vacancy.objects.filter(timestamp__lte=end_period).delete()  # lte - меньше чем
